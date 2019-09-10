@@ -5,13 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-@FeignClient(name="SmsClient", url="${feign.url}")
 public interface SmsClient {
-
     @GetMapping(value = "/sms/message/send")
     Object sendMessageAndWaitDelivery(
             @RequestParam String phone, @RequestParam String text, @RequestParam(required = false) Long time,
             @RequestParam(required = false, defaultValue = "false") boolean needDeliveryNotification);
-
 
 }
