@@ -12,10 +12,12 @@ public class SmsController {
     @Autowired
     private SmsClient smsClient;
 
+
     @GetMapping(value = "/message/send")
     public Object sendMessageAndWaitDelivery(
             @RequestParam String phone, @RequestParam String text, @RequestParam(required = false) Long time,
             @RequestParam(required = false, defaultValue = "false") boolean needDeliveryNotification) {
         return smsClient.sendMessageAndWaitDelivery(phone, text, time, needDeliveryNotification);
     }
+
 }
