@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-@FeignClient(name="SmsClient", url="http://localhost:8081")
+@FeignClient(name="SmsClient", url="${feign.url}")
 public interface SmsClient {
 
     @GetMapping(value = "/sms/message/send")
